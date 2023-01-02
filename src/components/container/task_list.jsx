@@ -8,10 +8,30 @@ const TaskList = () => {
     "LAVARME EL CULO",
     "esta es una descripcion de prueba",
     false,
+    Level.BLOCKING
+  );
+  const defaultTask2 = new Task(
+    "HACER UN BIZCOCHUELO",
+    "descripcion de hacer el bizcochuelo",
+    false,
+    Level.NORMAL
+  );
+  const defaultTask3 = new Task(
+    "TAREA DE PRUEBA",
+    "esta es una descripcion de prueba",
+    false,
+    Level.URGENTE
+  );
+  const defaultTask4 = new Task(
+    "hacer una app en react",
+    "esta es una descripcion de prueba",
+    true,
     Level.URGENTE
   );
 
-  const [task, setTask] = useState(defaultTask);
+  let tasks = [defaultTask, defaultTask2, defaultTask3, defaultTask4];
+
+  const [task, setTask] = useState(tasks);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,8 +48,9 @@ const TaskList = () => {
 
   return (
     <>
-      <p>Your tasks:</p>
-      <TaskComponent task={defaultTask}></TaskComponent>
+      {task.map((taskElement, index) => {
+        return <TaskComponent key={index} task={taskElement}></TaskComponent>;
+      })}
     </>
   );
 };
