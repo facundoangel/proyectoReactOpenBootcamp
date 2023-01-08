@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Task from "../../models/task.model";
 import PropTypes from "prop-types";
 import "./taskComponent.scss";
 
-const TaskComponent = ({ task }) => {
-  const [completed, setCompleted] = useState(task.completed);
-
+const TaskComponent = ({ task, addTask, deleteTask, toggleCompleted }) => {
   useEffect(() => {
     console.log("the task has been modified");
     return () => {
-      console.log(`the task ${task.name} is going to unmount`);
+      console.log(`the task is going to unmount`);
     };
-  }, [task]);
-
-  function handleCompleted() {
-    setCompleted(!completed);
-  }
+  }, []);
 
   function badgeTask(level) {
     switch (level) {
       case "blocking":
-        return <span class="badge text-bg-danger">Blocking</span>;
+        return <span className="badge text-bg-danger">Blocking</span>;
       case "normal":
-        return <span class="badge text-bg-primary">Normal</span>;
+        return <span className="badge text-bg-primary">Normal</span>;
       case "urgente":
-        return <span class="badge text-bg-warning">Urgente</span>;
+        return <span className="badge text-bg-warning">Urgente</span>;
       default:
         break;
     }
@@ -36,22 +30,26 @@ const TaskComponent = ({ task }) => {
       <td>{task.description}</td>
       <td>{badgeTask(task.level)}</td>
       <td className="text-center fs-3">
-        {completed ? (
+        {task.completed ? (
           <i
-            onClick={handleCompleted}
+            onClick={() => {
+              toggleCompleted(task);
+            }}
             style={{ color: "#7abb7a" }}
             className="bi bi-toggle-on"
           ></i>
         ) : (
           <i
-            onClick={handleCompleted}
+            onClick={() => {
+              toggleCompleted(task);
+            }}
             className="bi bi-toggle-off"
             style={{ color: "#a18d8d" }}
           ></i>
         )}
         <i
           onClick={() => {
-            alert("item deleted");
+            deleteTask(task);
           }}
           className="ms-2 text-danger bi bi-trash3-fill"
         ></i>

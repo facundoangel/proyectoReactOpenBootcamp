@@ -13,20 +13,13 @@ function App() {
         <div className="head-page container-fluid  text-center py-3 sticky-top">
           <h1 className="text-light">TAREAS APP</h1>
         </div>
-        <div className="p-5 container ">
-          <table className="table table-dark table-striped table-hover">
-            <thead className="text-center">
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Level</th>
-                <th scope="col">Completed</th>
-              </tr>
-            </thead>
-            <tbody>
-              <TaskList></TaskList>
-            </tbody>
-          </table>
+        <div className=" card mt-5">
+          <div className=" card-header bg-dark">
+            <h2 className="h4 text-center mt-2 text-light">TASK'S LIST</h2>
+          </div>
+          <div className="card-body p-1 bg-secondary list-tasks">
+            <TaskList></TaskList>
+          </div>
         </div>
       </div>
     </>
