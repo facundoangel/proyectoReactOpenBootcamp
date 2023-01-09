@@ -3,6 +3,7 @@ import Task from "../../models/task.model";
 import Level from "../../models/levels.enum";
 import TaskComponent from "../pure/taskComponent";
 import AddFormTask from "../form/addFormTask";
+import AddFormTaskReactive from "../form/addFormTaskReactive";
 
 const TaskList = () => {
   const [task, setTask] = useState(null);
@@ -99,7 +100,8 @@ const TaskList = () => {
       ) : (
         <p className="h3 text-center w-100 py-5">There are not tasks</p>
       )}
-      <AddFormTask addTask={handleAddTask} amountTask={task.length} />
+      {/* <AddFormTask addTask={handleAddTask} amountTask={task.length} /> */}
+      <AddFormTaskReactive addTask={handleAddTask} amountTask={task.length} />
     </>
   );
 };

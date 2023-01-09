@@ -14,15 +14,15 @@ function App() {
         <div className="head-page container-fluid  text-center py-3 sticky-top">
           <h1 className="text-light">TAREAS APP</h1>
         </div>
-        {/* <div className=" card mt-5">
+        <div className=" card mt-5">
           <div className=" card-header bg-dark">
             <h2 className="h4 text-center mt-2 text-light">TASK'S LIST</h2>
           </div>
           <div className="card-body p-1 bg-secondary list-tasks">
             <TaskList></TaskList>
           </div>
-        </div> */}
-        <div
+        </div>
+        {/* <div
           className="jumbotron bg-dark text-light py-3 px-5 my-5"
           style={{ minWidth: "70vw" }}
         >
@@ -31,7 +31,7 @@ function App() {
             <hr className="mb-5 mt-3 "></hr>
             <FormRegister></FormRegister>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
