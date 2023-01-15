@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import LEVEL from "../../models/levels.enum";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
