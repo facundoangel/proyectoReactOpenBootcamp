@@ -1,5 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.scss";
 import HomePage from "./pages/home/homePage";
@@ -22,7 +27,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            {credentials ? <HomePage /> : <LoginPage />}
+            {credentials ? <HomePage /> : <Redirect to="/login" />}
           </Route>
           <Route path="/register" component={RegisterPage} />
           <Route path="/login" component={LoginPage} />
