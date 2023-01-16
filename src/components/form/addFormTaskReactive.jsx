@@ -27,7 +27,7 @@ const AddFormTaskReactive = ({ addTask, amountTask }) => {
 
   return (
     <>
-      <h2 className="display-6 mb-2 mt-4">Add a Task</h2>
+      <h2 className="display-6 mb-2 mt-4 px-3">Add a Task</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -35,13 +35,13 @@ const AddFormTaskReactive = ({ addTask, amountTask }) => {
           handleAddTask(e);
         }}
       >
-        <Form className="text-center">
+        <Form className="text-center px-3 pb-2 ">
           <div className="row">
             <div className="col-6">
               <ErrorMessage
                 name="name"
                 component="div"
-                className="alert alert-danger"
+                className="alert alert-danger py-1 my-2"
               />
               <Field
                 className="form-control form-control-lg  mb-1"
@@ -51,7 +51,7 @@ const AddFormTaskReactive = ({ addTask, amountTask }) => {
               <ErrorMessage
                 name="description"
                 component="div"
-                className="alert alert-danger"
+                className="alert alert-danger  py-1 my-2"
               />
               <Field
                 className="form-control form-control-lg  mb-1"

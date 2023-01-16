@@ -1,5 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Button } from "@mui/material";
+import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import ROLES from "../../models/roles.enum";
 
@@ -11,11 +13,10 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required("Email is required")
     .min(5, "Email is too short")
-    .max(9, "Email is too long")
     .email("Email is not valid"),
   password: Yup.string()
     .required("Password is required")
-    .matches("/w[.-@$_]{4,8}/", "Password have a format invalid"),
+    .matches("[a-zA-Z0-9.-@$_]{4,8}", "Password have a format invalid"),
 });
 
 const valuesInitialsForm = {
@@ -26,15 +27,21 @@ const valuesInitialsForm = {
 };
 
 const FormRegister = () => {
+  const history = useHistory();
+
+  const goToLogin = () => {
+    history.push("/login");
+  };
+
   return (
     <Formik
       initialValues={valuesInitialsForm}
       validationSchema={validationSchema}
       onSubmit={async (e) => {
-        await new Promise((r) => {
-          setTimeout(r, 2000);
-        });
         alert(JSON.stringify(e, null, 2));
+        await sessionStorage.setItem("user", e.username);
+        await sessionStorage.setItem("password", e.password);
+        //goToLogin();
       }}
     >
       <Form className="d-flex flex-column align-items-center">
@@ -112,6 +119,7 @@ const FormRegister = () => {
         <button className="btn btn-lg btn-success" type="submit">
           Submit
         </button>
+        <Button onClick={goToLogin}>sing in</Button>
       </Form>
     </Formik>
   );

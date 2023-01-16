@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Task from "../../models/task.model";
 import Level from "../../models/levels.enum";
 import TaskComponent from "../pure/taskComponent";
-import AddFormTask from "../form/addFormTask";
 import AddFormTaskReactive from "../form/addFormTaskReactive";
 
 const TaskList = () => {
@@ -34,7 +33,7 @@ const TaskList = () => {
   useEffect(() => {
     console.log("the task has been mounted");
     const defaultTask = new Task(
-      "LAVARME EL CULO",
+      "BHJKBKJBJK",
       "esta es una descripcion de prueba",
       false,
       Level.BLOCKING
